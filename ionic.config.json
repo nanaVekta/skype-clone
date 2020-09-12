@@ -1,5 +1,7 @@
 {
   "name": "podcast-clone",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

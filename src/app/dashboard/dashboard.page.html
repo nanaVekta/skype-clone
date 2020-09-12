@@ -1,0 +1,151 @@
+
+<ion-content class="ion-padding">
+  <ion-searchbar></ion-searchbar>
+
+  <ion-list lines="none">
+    <ion-item>
+      <ion-avatar>
+        <img src="../../assets/me.jpg">
+        
+      </ion-avatar>
+      <ion-label>
+        <h5><b>Kofi Ghana</b></h5>
+        <h6 class="online"><small>Online</small></h6>
+      </ion-label>
+
+      <p class="text-color" slot="end">254 Contacts</p>
+    </ion-item>
+  </ion-list>
+  <hr>
+
+  <ion-list  *ngIf="!itemSet">
+    <ion-list-header>
+      <h2>Chats</h2>
+    </ion-list-header>
+    
+    <ion-item>
+      <ion-avatar>
+        <ion-skeleton-text animated style="width: 100%;"></ion-skeleton-text>
+      </ion-avatar>
+      <ion-label>
+        <ion-skeleton-text animated style="width: 50%;"></ion-skeleton-text>
+        <ion-skeleton-text animated style="width: 80%;"></ion-skeleton-text>
+
+      </ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-avatar>
+        <ion-skeleton-text animated style="width: 100%;"></ion-skeleton-text>
+      </ion-avatar>
+      <ion-label>
+        <ion-skeleton-text animated style="width: 50%;"></ion-skeleton-text>
+        <ion-skeleton-text animated style="width: 80%;"></ion-skeleton-text>
+
+      </ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-avatar>
+        <ion-skeleton-text animated style="width: 100%;"></ion-skeleton-text>
+      </ion-avatar>
+      <ion-label>
+        <ion-skeleton-text animated style="width: 50%;"></ion-skeleton-text>
+        <ion-skeleton-text animated style="width: 80%;"></ion-skeleton-text>
+
+      </ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-avatar>
+        <ion-skeleton-text animated style="width: 100%;"></ion-skeleton-text>
+      </ion-avatar>
+      <ion-label>
+        <ion-skeleton-text animated style="width: 50%;"></ion-skeleton-text>
+        <ion-skeleton-text animated style="width: 80%;"></ion-skeleton-text>
+
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-avatar>
+        <ion-skeleton-text animated style="width: 100%;"></ion-skeleton-text>
+      </ion-avatar>
+      <ion-label>
+        <ion-skeleton-text animated style="width: 50%;"></ion-skeleton-text>
+        <ion-skeleton-text animated style="width: 80%;"></ion-skeleton-text>
+
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-avatar>
+        <ion-skeleton-text animated style="width: 100%;"></ion-skeleton-text>
+      </ion-avatar>
+      <ion-label>
+        <ion-skeleton-text animated style="width: 50%;"></ion-skeleton-text>
+        <ion-skeleton-text animated style="width: 80%;"></ion-skeleton-text>
+
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <ion-list class="chats" *ngIf="itemSet">
+    <ion-list-header>
+      <h2>Chats</h2>
+    </ion-list-header>
+    
+    <ion-item-sliding *ngFor="let chat of chats; let i = index" (ionDrag)="swiped($event, chat.id)" >
+      <ion-item detail="false" (click)="onClick($event, i)">
+        <ion-avatar>
+          <img [src]="chat.pic">
+        </ion-avatar>
+        <ion-badge color="success" *ngIf="chat.status == 'online' || chat.status == 'waiting'">&nbsp;</ion-badge>
+        <ion-badge color="danger" *ngIf="chat.status == 'unread'">&nbsp;</ion-badge>
+        <ion-badge color="warning" *ngIf="chat.status == 'busy'">&nbsp;</ion-badge>
+        <ion-badge color="medium" *ngIf="chat.status == 'offline'">&nbsp;</ion-badge>
+        <ion-label>
+          <h5><b>{{chat.name}}</b></h5>
+          <span *ngIf="chat.status == 'online'">
+            <ion-note><small>{{chat.message}}</small></ion-note>
+            <h6 class="online"><small>Online</small></h6>
+
+          </span>
+
+          <span *ngIf="chat.status == 'unread'">
+            <ion-note><small>{{chat.message}}</small></ion-note>
+          </span>
+
+          <span *ngIf="chat.status == 'offline'">
+            <ion-note><small>{{chat.time}}</small></ion-note>
+            <h6 class="offline"><small>Offline</small></h6>
+          </span>
+
+          <span *ngIf="chat.status == 'waiting'">
+            <h6 class="waiting"><small>Waiting &nbsp;&nbsp; &nbsp;&nbsp; <ion-spinner name="dots"></ion-spinner></small></h6>
+          </span>
+
+          <span *ngIf="chat.status == 'busy'">
+            <h6 class="busy"><small>Busy</small></h6>
+          </span>
+  
+        </ion-label>
+  
+        <span slot="end">
+          <span [ngClass]="chat.active == true ? 'icon-active': 'chat-icon'" >
+            <ion-icon name="chatbox"></ion-icon>
+          </span>
+  
+          <span [ngClass]="chat.active == true ? 'icon-active': 'chat-icon'">
+            <ion-icon name="call"></ion-icon>
+          </span>
+        </span>
+      </ion-item>
+
+      <ion-item-options side="end" >
+          <ion-item-option color="tertiary" expandable>Archive</ion-item-option>
+      </ion-item-options>
+      
+    </ion-item-sliding>
+
+   
+  </ion-list>
+</ion-content>
