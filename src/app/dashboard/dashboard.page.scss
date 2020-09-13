@@ -4,6 +4,11 @@ ion-searchbar{
     --background: #f5f5f5;
 }
 
+ion-content{
+    font-family: Roboto, "Helvetica Neue", sans-serif !important;
+
+}
+
 ion-label{
     margin-left: 10px;
     margin-top: 5px;
@@ -74,6 +79,7 @@ hr {
     padding: 7px 6px 2px 6px;
     border-radius: 255px;
     margin-right: 5px;
+    border: none !important;
 }
 
 ion-badge{

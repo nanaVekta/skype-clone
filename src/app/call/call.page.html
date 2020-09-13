@@ -1,0 +1,18 @@
+<ion-content [fullscreen]="true" class="ion-padding">
+  <div class="image-center">
+    <img src="../../assets/skype-black.png">
+  </div> 
+
+  <img [src]="pic" id="receiver">
+
+  <img src="../../assets/me.jpg" id="sender">
+
+  
+</ion-content>
+<ion-footer class="ion-no-border ion-padding">
+  <ion-item>
+      <ion-icon name="mic-off" slot="start"></ion-icon>
+      <ion-button color="danger" size="large" shape="round" routerLink="/dashboard" routerDirection="backward"><ion-icon name="call"></ion-icon></ion-button>
+      <ion-icon name="camera-reverse-outline" slot="end"></ion-icon>
+  </ion-item>
+</ion-footer>

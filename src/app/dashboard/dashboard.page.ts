@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AlertController } from '@ionic/angular';
+import { AlertController, NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-dashboard',
@@ -24,7 +24,7 @@ export class DashboardPage implements OnInit {
   public itemSet: Boolean = false;
   public active: any[] = [];
 
-  constructor(private alertCtrl: AlertController) { }
+  constructor(private alertCtrl: AlertController, private navCtrl: NavController) { }
 
   ngOnInit() {
     setTimeout(() => {
@@ -35,7 +35,7 @@ export class DashboardPage implements OnInit {
   swiped(ev, id){
     const ratio = ev.detail.ratio;
     console.log(ratio);
-    if (ratio > 5){
+    if (ratio > 3){
       this.presentConfirm(id);
     }
   }
@@ -72,4 +72,8 @@ export class DashboardPage implements OnInit {
     this.chats[i].active = true;
   }
 
+
+  goToCall(pic){
+    this.navCtrl.navigateForward(['/call', {pic: pic}]);
+  }
 }

@@ -120,7 +120,7 @@
           </span>
 
           <span *ngIf="chat.status == 'waiting'">
-            <h6 class="waiting"><small>Waiting &nbsp;&nbsp; &nbsp;&nbsp; <ion-spinner name="dots"></ion-spinner></small></h6>
+            <h6 class="waiting"><small>Waiting &nbsp;&nbsp; &nbsp; <ion-spinner name="dots"></ion-spinner></small></h6>
           </span>
 
           <span *ngIf="chat.status == 'busy'">
@@ -134,14 +134,14 @@
             <ion-icon name="chatbox"></ion-icon>
           </span>
   
-          <span [ngClass]="chat.active == true ? 'icon-active': 'chat-icon'">
+          <span [ngClass]="chat.active == true ? 'icon-active': 'chat-icon'" (click)="goToCall(chat.pic)">
             <ion-icon name="call"></ion-icon>
           </span>
         </span>
       </ion-item>
 
       <ion-item-options side="end" >
-          <ion-item-option color="tertiary" expandable>Archive</ion-item-option>
+          <ion-item-option color="tertiary" (click)="presentConfirm(chat.id)" expandable>Archive</ion-item-option>
       </ion-item-options>
       
     </ion-item-sliding>
